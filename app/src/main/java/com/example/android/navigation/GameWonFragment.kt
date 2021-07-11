@@ -45,7 +45,11 @@ class GameWonFragment : Fragment() {
         // TODO (06) Add an onClick Handler for the nextMatch button that navigates to the gameFragment
         // using action_gameWonFragment_to_gameFragment
         binding.nextMatchButton.setOnClickListener{view:View ->
-            view.findNavController().navigate(R.id.action_gameWonFragment_to_gameFragment)}
+            view.findNavController().navigate(GameWonFragmentDirections.actionGameWonFragmentToGameFragment())}
+
+        var args = GameWonFragmentArgs.fromBundle(arguments!!)
+        Toast.makeText(context, "NumCorrect: ${args.numCorrect}, NumQuestions: ${args.numQuestions}", Toast.LENGTH_LONG).show()
+
         return binding.root
     }
 }
